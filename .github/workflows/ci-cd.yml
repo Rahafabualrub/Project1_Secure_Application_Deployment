@@ -47,7 +47,6 @@ jobs:
           docker push --platform linux/amd64 \
             ghcr.io/rahafabualrub/secure-task-manager-frontend:latest
 
-
   deploy:
     needs: build-and-push
     runs-on: self-hosted
