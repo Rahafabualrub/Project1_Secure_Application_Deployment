@@ -26,7 +26,7 @@ jobs:
 
       - name: Build backend image
         run: |
-          docker build \
+          docker build --platform linux/amd64 \
             -t ghcr.io/rahafabualrub/secure-task-manager-backend:latest \
             ./backend
 
@@ -36,10 +36,21 @@ jobs:
 
       - name: Build frontend image
         run: |
-          docker build \
+          docker build --platform linux/amd64 \
             -t ghcr.io/rahafabualrub/secure-task-manager-frontend:latest \
             ./frontend
 
       - name: Push frontend image
         run: |
           docker push ghcr.io/rahafabualrub/secure-task-manager-frontend:latest
+
+      - name: Deploy application
+        run: |
+          cd ~/Desktop/finalProject3/Project1_Secure_Application_Deployment
+          docker compose pull
+          docker compose up -d
+
+      - name: Verify deployment
+        run: |
+          cd ~/Desktop/finalProject3/Project1_Secure_Application_Deployment
+          docker compose ps
