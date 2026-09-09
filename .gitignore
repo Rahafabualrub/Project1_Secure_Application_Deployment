@@ -4,3 +4,6 @@
 !frontend/
 !frontend/**
 !.gitignore
+!.github/
+!.github/workflows/
+!.github/workflows/ci-cd.yml
