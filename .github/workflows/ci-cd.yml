@@ -44,6 +44,12 @@ jobs:
         run: |
           docker push ghcr.io/rahafabualrub/secure-task-manager-frontend:latest
 
+
+  deploy:
+    needs: build-and-push
+    runs-on: self-hosted
+
+    steps:
       - name: Deploy application
         run: |
           cd ~/Desktop/finalProject3/Project1_Secure_Application_Deployment
